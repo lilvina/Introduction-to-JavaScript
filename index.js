@@ -11,26 +11,37 @@ returns a value, that value will be logged to the console.  An example of this w
 /*
 Task 1a - Voting Age
 
-Do the following:   
+Do the following:
    1. Make a variable called votingAge and give it a value
    2. Return true if age is 18 or higher
 
    HINT: no function required
 */
-
+var votingAge = 10
+if(votingAge >= 18) {
+  console.log(true)
+} else {
+  console.log(false)
+}
 
 
 /*
 Task 1b - Values
 
-Do the following:   
+Do the following:
    1. Declare two variables and assign them values
    2. Use a conditional to change the value of the 1st variable based on the value assigned to the 2nd variable
    3. Return the new value of the 1st variable
 
    HINT: no function required
 */
+var value1 = 4
+var value2 = 10
 
+if(value1 > value2) {
+  value2 = value1
+  console.log(value1)
+}
 
 
 
@@ -38,28 +49,32 @@ Do the following:
 /*
 Task 1c - Convert Strings to Numbers
 
-Do the following:   
+Do the following:
    1. Declare a string type variable with the value of "1999"
    2. Convert the string value of "1999" to a integer value of 1999
    3. Return the result
 
    HINT: look up the Number method
 */
-
+let year = "1999"
+year = Number(year)
+console.log(year)
 
 
 
 /*
 Task 1d - Multiply
- 
-Do the following:   
+
+Do the following:
    1. Invoke the multiply function below and pass it two numbers
    2. Receive the numbers in the parameters: a and b
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
+function multiply(a, b){
     /*add your code here*/
+    let sum = a * b
+    return sum
   }
 
 
@@ -74,8 +89,10 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
+function dogYears(age){
     /*add your code here*/
+    let sum = age * 7
+    return sum
 }
 
 
@@ -88,27 +105,51 @@ Use the hungryDog function and feeding requirements below to do the following:
   1. Invoke the hungryDog function below and pass it a weight value in pounds
   2. Also, pass to hungryDog an age value in years (note: if the dog is a puppy, the age will be a decimal. For example: three months = 3/12 or .25)
   3. Do the proper calculations and return the number of pounds of raw food to feed the dog/puppy in a day
-  
+
   REMEMBER: This program should handle correctly adult AND puppy ages and weights
-  
+
   Feeding Requirements:
 
-  Adult Dogs 1 year and older 
+  Adult Dogs 1 year and older
      up to 5 lbs - 5% of their body weight
-     6 - 10 lbs - 4% of their body weight 
-     11 - 15 lbs - 3% of their body weight 
-     > 15lbs - 2% of their body weight 
+     6 - 10 lbs - 4% of their body weight
+     11 - 15 lbs - 3% of their body weight
+     > 15lbs - 2% of their body weight
 
   Puppies less than 1 year
      2 - 4 months 10% of their body weight
-     4 - 7 months 5% of their body weight 
+     4 - 7 months 5% of their body weight
      7 - 12 months 4% of their body weight
-    
-  NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
-*/  
 
-function hungryDog(/*add your code here*/){
+  NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
+*/
+
+function hungryDog(pounds, age){
     /*add your code here*/
+    if(age >= 1) {
+      if(pounds <= 5) {
+        return pounds * .05
+      }
+      if(pounds <= 10) {
+        return pounds * .04
+      }
+      if(pounds <= 15) {
+        return pounds * .03
+      }
+      if(pounds > 15) {
+        return pounds * .02
+      }
+    }
+
+    if(age >= .584) {
+      return pounds * .04
+    }
+    if(age >= .334) {
+      return pounds * .05
+    }
+    if(age >= .166) {
+      return pounds * .1
+    }
   }
 
 
@@ -126,22 +167,54 @@ Use the game function below to do the following:
    - win should return "you win!"
    - lose should return "you lose!"
    -tie should return "it's a tie"
-  
+
   RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie
-  
+
   HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 */
 
+
 function game(user, computer){
     /*add your code here*/
+    if(user == "rock") {
+      user = 1
+    } else if(user == "paper") {
+      user = 2
+    } else if(user == "scissors") {
+      user = 3
+    }
+
+    if(computer == "rock") {
+      computer = 1
+    } else if(computer == "paper") {
+      computer = 2
+    } else if(computer == "scissors") {
+      computer = 3
+    }
+
+    if(user === computer) {
+      return "it's a tie"
+    } else if(user === 1 && computer === 2) {
+      return "you lose!"
+    } else if(user === 1 && computer === 3) {
+      return "you win!"
+    } else if( user === 2 && computer === 3) {
+      return "you lose!"
+    } else if(user === 2 && computer === 1) {
+      return "you win!"
+    } else if(user === 3 && computer === 1) {
+      return "you lose!"
+    } else if(user === 3 && computer === 2) {
+      return "you win!"
+    }
 }
-  
-  
+
+
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
-//Metric Converter 
-//Task 5a - KM to Miles 
+//Metric Converter
+//Task 5a - KM to Miles
 /*
 Using the miles function below do the following:
   1. Receive a number of kilometers
@@ -149,8 +222,9 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
+function miles(kilometers){
     /*add your code here*/
+    return kilometers * 0.621371
   }
 
 
@@ -163,10 +237,11 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
+function feet(centimeters){
     /*add your code here*/
+    return centimeters / 30.48
   }
- 
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -174,38 +249,53 @@ function feet(/*add your code here*/){
 // Let's Sing 99 Bottles of Soda on the Wall!
 /*
 Using the annoyingSong function below do the following:
-  1. Receive a starting number and start to count down from the number received 
-  2. At each iteration, it should return this string: 
+  1. Receive a starting number and start to count down from the number received
+  2. At each iteration, it should return this string:
       "(number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
+function annoyingSong(startingNum){
         /*add your code here*/
-  }
+        let counter = startingNum
+        for(counter; counter >= 1; counter - 1) {
+          return `${startingNum} bottles of soda on the wall, ${startingNum} bottles of soda, take one down pass it around ${startingNum - 1} bottles of soda on the wall`
+        }
+}
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 //Grade Calculator
 /*
-Using the grade function below do the following: 
-  1. Receive a score out of 100 
+Using the grade function below do the following:
+  1. Receive a score out of 100
   2. Return the corresponding letter grade following this grade scale:
 
-   90-100 = A 
-   80-89 = B 
-   70-79 = C 
-   60-69 =  D 
+   90-100 = A
+   80-89 = B
+   70-79 = C
+   60-69 =  D
    below 60 = F
 */
-  
-function grade(/*add your code here*/){
+
+function grade(score){
     /*add your code here*/
+    if(score >= 90) {
+      return "you got a A"
+    } else if(score >= 80) {
+      return "you got a B"
+    } else if(score >= 70) {
+      return "you got a C"
+    } else if(score >= 60) {
+      return "you got a D"
+    } else if(score < 60) {
+      return "you got a F"
+    }
   }
-  
-  
-  
-  
+
+
+
+
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
 
@@ -215,7 +305,7 @@ Using the vowelCounter function below do the following:
   1. Receive a string as a parameter
   2. Count and return the number of vowels within that string.  It should handle both capitalized and uncapitalized vowels.
 
-  HINT - you may need to study tomorrow's content on arrays 
+  HINT - you may need to study tomorrow's content on arrays
   HINT - try looking up the .includes() method
 */
 
